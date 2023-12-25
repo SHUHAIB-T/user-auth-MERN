@@ -3,6 +3,7 @@ import User from "../models/userModel.js";
 import createToken from "../utils/generateToken.js"
 
 
+
 // @desc     Auth user/set token
 // route     POST /api/users/auth
 // @access   Public
@@ -45,22 +46,38 @@ const registerUser = asyncHandler(async (req, res) => {
 // route     GET /api/users/profile
 // @access   Private
 const getUserProfile = asyncHandler(async (req, res) => {
-    let user_id = req.query.id;
-    const userDetails = await User.findOne({ _id: user_id });
-    if (userDetails) {
-        res.json(userDetails)
-    } else {
-        res.status(400);
-        throw new Error("user not found");
+    console.log(req.user);
+    const user = {
+        _id: req.user._id,
+        name: req.user.name,
+        email: req.user.email,
+        phone: req.user.phone
     }
+    res.json(user)
 });
 
 // @desc     Update User profile
 // route     PUT /api/users/profile
 // @access   Private
 const updateUserProfile = asyncHandler(async (req, res) => {
+    
+    let user = await User.findById(req.user._id);
+    
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.phone = req.body.phone || user.phone;
+
+    if (req.body.password) {
+        user.password = req.body.password;
+    }
+
+    let updatedUser = await user.save();
+
     res.status(200).json({
-        message: "Update User"
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        phone: updatedUser.phone
     });
 });
 

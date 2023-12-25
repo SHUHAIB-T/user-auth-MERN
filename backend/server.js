@@ -21,6 +21,7 @@ app.use(urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use("/api/users", userRouter);
+
 app.get("/", (req, res) => res.send("the server is ready "));
 
 app.use(notFound);
