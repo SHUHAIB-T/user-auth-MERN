@@ -12,7 +12,7 @@ const authUser = asyncHandler(async (req, res) => {
     let user = await User.findOne({ email: email });
     if (user && (await user.matchPassword(password))) {
         createToken(res, user._id);
-        res.status(500);
+        res.status(200);
         res.json(user);
     } else {
         res.status(401);
@@ -60,9 +60,9 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // route     PUT /api/users/profile
 // @access   Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-    
+
     let user = await User.findById(req.user._id);
-    
+
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.phone = req.body.phone || user.phone;
@@ -94,10 +94,31 @@ const logoutUser = asyncHandler(async (req, res) => {
     });
 });
 
+
+// @desc     Logut User
+// route     POST /api/users/update-profile
+// @access   Private
+const updateProfile = asyncHandler(async (req, res) => {
+    if (!req.file) throw new Error("Internal Server Error");
+    const user = await User.findById(req.params.id);
+    user.profile = {
+        filename: req.file.filename
+    }
+    user.save();
+    res.json({
+        message: 'Profile updated successfully',
+        filename: req.file.filename
+    })
+
+});
+
+
+
 export {
     authUser,
     registerUser,
     updateUserProfile,
     getUserProfile,
-    logoutUser
+    logoutUser,
+    updateProfile
 }
