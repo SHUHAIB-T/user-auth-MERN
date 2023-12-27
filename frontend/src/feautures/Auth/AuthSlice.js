@@ -48,7 +48,7 @@ const authSlice = createSlice({
         logout: (state) => {
             localStorage.removeItem("userInfo");
             localStorage.removeItem("role");
-            cookies.remove("accessToken")
+            cookies.remove("accessToken");
             state.user = null;
             state.role = '';
         },

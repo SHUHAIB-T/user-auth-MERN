@@ -26,11 +26,12 @@ const register = asyncHandler(async (req, res) => {
 // @access   protected
 const adminLogin = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
+
     const admin = await Admin.findOne({ email: email });
-    if (admin && admin.matchPassword(password)) {
-        generateAdmintoken(res, admin._id);
+    if (admin && (await admin.matchPassword(password))) {
+        const token = generateAdmintoken(res, admin._id);
         res.status(200);
-        res.json(admin);
+        res.json({ user: admin, token: token });
     } else {
         res.status(401);
         throw new Error("Invalid Email or Password");

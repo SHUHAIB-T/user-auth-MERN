@@ -25,7 +25,7 @@ const protect = asyncHandler(async (req, res, next) => {
 // protect admin route
 const isAdminLoggedIn = asyncHandler(async (req, res, next) => {
     let token
-    token = req.cookies.jwtadmin;
+    token = req.cookies.accessToken;
     if (token) {
         try {
             let decoded = jwt.verify(token, process.env.JWT_SECRET);

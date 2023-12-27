@@ -5,10 +5,14 @@ import User from "../models/userModel.js";
 // route     GET /api/admin/manageuser
 // @access   Private
 const getAllusers = asyncHandler(async (req, res) => {
-    const users = await User.find();
+    let query = { status: true }
+    if (req.query.search) {
+        query.name = { $regex: new RegExp(req.query.search, 'i') };
+    }
+    const users = await User.find(query);
     if (users) {
         res.status(200);
-        res.json(users);
+        res.json({ success: true, users: users });
     } else {
         res.status(500);
         throw new Error("Something went Wrong!");
@@ -43,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
             password
         });
         const saveUser = await user.save();
-        res.status(200).json(saveUser)
+        res.status(200).json({ success: true })
     } else {
         res.status(402);
         throw new Error("Email Already Exist");
@@ -59,6 +63,7 @@ const deleteUser = asyncHandler(async (req, res) => {
         res.status(200);
         res.json({
             message: "User deleted successfully",
+            usesrId: req.params.id
         });
     } else {
         res.status(500);
@@ -77,12 +82,18 @@ const updateUser = asyncHandler(async (req, res) => {
     if (req.body.password) {
         user.password = req.body.password;
     }
-    let updatedUser = await user.save();
-    if (updatedUser) {
-        res.status(200).json(updatedUser);
+    const isEmailExist = await User.findOne({ email: req.body.email });
+    if (isEmailExist) {
+        res.status(401);
+        throw new Error("Email is allready exist");
     } else {
-        res.status(500);
-        throw new Error("Internal server Error");
+        let updatedUser = await user.save();
+        if (updatedUser) {
+            res.status(200).json({ success: true, user: updatedUser });
+        } else {
+            res.status(500);
+            throw new Error("Internal server Error");
+        }
     }
 });
 

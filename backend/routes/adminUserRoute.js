@@ -11,7 +11,7 @@ import {
 } from "../controller/adminUserController.js"
 
 router.get("/:id", isAdminLoggedIn, getusers);
-router.route("/").get(isAdminLoggedIn, getAllusers).post(isAdminLoggedIn, registerUser);
-router.route("/:id").delete(isAdminLoggedIn, deleteUser).put(isAdminLoggedIn, updateUser);
+router.route("/").get(isAdminLoggedIn, getAllusers).post(registerUser);
+router.route("/:id").delete(isAdminLoggedIn, deleteUser).put(updateUser);
 
 export default router;

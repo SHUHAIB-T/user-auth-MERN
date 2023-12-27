@@ -25,7 +25,7 @@ export default function Login(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validata());
+    setFormErrors(validate());
     setisSubmit((prev) => !prev);
   };
 
@@ -37,7 +37,7 @@ export default function Login(props) {
     }));
   };
 
-  const validata = () => {
+  const validate = () => {
     const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     let errors = {};
     if (!email) errors.email = "Email is required";
