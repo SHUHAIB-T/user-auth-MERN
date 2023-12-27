@@ -1,0 +1,28 @@
+.profile {
+  width: 70px;
+}
+.user-profile {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.profile-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #5a5a5a92;
+  border-radius: 10px;
+}
+.profile-img-container {
+  display: flex;
+  justify-content: center;
+}
+.inputfield {
+  margin: 10px 0px;
+  width: 150px;
+}
+.profile {
+  border-radius: 50%;
+}

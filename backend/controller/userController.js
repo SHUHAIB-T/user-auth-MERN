@@ -9,14 +9,15 @@ import createToken from "../utils/generateToken.js"
 // @access   Public
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    let user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email });
     if (user && (await user.matchPassword(password))) {
-        createToken(res, user._id);
+        const token = createToken(res, user._id);
         res.status(200);
-        res.json(user);
+        res.json({ user: user, token: token });
     } else {
         res.status(401);
         throw new Error("invalid email or password");
+
     }
 });
 
@@ -35,7 +36,7 @@ const registerUser = asyncHandler(async (req, res) => {
         });
         const saveUser = await user.save();
         createToken(res, saveUser._id);
-        res.json(saveUser)
+        res.json({ success: true })
     } else {
         res.status(400);
         throw new Error("User Allready exist");

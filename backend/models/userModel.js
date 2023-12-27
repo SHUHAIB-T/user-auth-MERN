@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     profile: {
-        type: String
+        type: Object
     },
     status: {
         type: Boolean,

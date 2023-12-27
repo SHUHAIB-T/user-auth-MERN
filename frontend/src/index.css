@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+p {
+  line-height: 1.7;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  line-height: 2.2;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 60px;
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header ul li {
+  margin-left: 20px;
+}
+
+.header ul li a {
+  display: flex;
+  align-items: center;
+}
+
+.header ul li a:hover {
+  color: #777;
+}
+
+.header ul li a svg {
+  margin-right: 5px;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.heading p {
+  color: #828282;
+}
+
+.form,
+.content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.form-group label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn svg {
+  margin-right: 8px;
+}
+
+.btn-reverse {
+  background: #fff;
+  color: #000;
+}
+
+.btn-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 90%;
+  }
+
+  .heading h1 {
+    font-size: 2rem;
+  }
+
+  .heading p {
+    font-size: 1.5rem;
+  }
+}
+
+.error-msg {
+  font-size: 15px;
+  color: rgb(218, 15, 15);
+  text-align: center;
+}
+.global-error {
+  background-color: rgb(247, 200, 200);
+  width: 300px;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+.error-bounday {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  padding: 5px;
+  background-color: #ffe8e8;
+  margin: 10px 0;
+  border-radius: 3px;
+  border: 0.2px solid #c2c2c25e;
+}

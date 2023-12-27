@@ -10,7 +10,7 @@ import {
     updateProfile
 } from "../controller/userController.js";
 import { protect } from "../middleware/authMiddleware.js";
-import { upload } from "../middleware/multerConfige.js";
+import upload from "../middleware/multerConfige.js";
 
 
 router.post("/", registerUser);
