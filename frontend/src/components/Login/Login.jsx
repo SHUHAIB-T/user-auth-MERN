@@ -37,6 +37,7 @@ export default function Login(props) {
     }));
   };
 
+
   const validate = () => {
     const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     let errors = {};
@@ -55,6 +56,7 @@ export default function Login(props) {
     submitForm();
   }, [isSubmit, dispatch]);
 
+  
   useEffect(() => {
     if (isError) {
       if (error?.status === 500) {
