@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login, reset } from "../../feautures/Auth/AuthSlice";
 import { toast } from "react-toastify";
+import "./Login.css";
 
 import Spinner from "../Spinner/Spinner";
 
@@ -37,7 +38,6 @@ export default function Login(props) {
     }));
   };
 
-
   const validate = () => {
     const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     let errors = {};
@@ -56,7 +56,6 @@ export default function Login(props) {
     submitForm();
   }, [isSubmit, dispatch]);
 
-  
   useEffect(() => {
     if (isError) {
       if (error?.status === 500) {
@@ -81,46 +80,57 @@ export default function Login(props) {
 
   return (
     <>
-      <section className="heading">
-        <h1>Login</h1>
-      </section>
-      <section className="form">
-        {formErrors.serverError && (
-          <div className="error-bounday">
-            <span className="error-msg">{formErrors.serverError}</span>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={onChange}
-            />
-          </div>
+      <div className="wrapp">
+        <img
+          className="loginIMG"
+          src="https://drive.google.com/uc?id=1NAM7cx0BI_GswSRU_uhImZkrpZXhtcYz"
+          alt=""
+        />
+        <div className="wrapper">
+          <section className="heading">
+            <h1>Login</h1>
+          </section>
+          <section className="form">
+            {formErrors.serverError && (
+              <div className="error-bounday">
+                <span className="error-msg">{formErrors.serverError}</span>
+              </div>
+            )}
+            <form onSubmit={onSubmit}>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={email}
+                  placeholder="Enter your email"
+                  onChange={onChange}
+                />
+              </div>
+              <span className="error-msg">{formErrors.email}</span>
+              <div className="form-group">
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={password}
+                  placeholder="Enter password"
+                  onChange={onChange}
+                />
+              </div>
+              <span className="error-msg">{formErrors.password}</span>
 
-          <div className="form-group">
-            <button type="submit" className="btn btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
+              <div className="form-group">
+                <button type="submit" className="btn btn-block">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
     </>
   );
 }

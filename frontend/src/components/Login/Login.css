@@ -1,0 +1,39 @@
+.wrapp {
+  display: flex;
+  justify-content: space-between;
+  margin: -10px;
+}
+.wrapp img {
+  width: 40%;
+  object-fit:contain;
+}
+.wrapper {
+  width: 30%;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #1212123c;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.loginIMG {
+  width: 30% !important;
+  margin-left: 10%;
+  height: auto;
+  object-fit: contain;
+
+}
+.form-group {
+  width: 100%;
+}
+.form-group input {
+  width: 100%;
+  margin: 8px 0px;
+  height: 30px;
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #5d5d5d44;
+}

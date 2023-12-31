@@ -9,6 +9,7 @@
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -76,49 +77,23 @@ h3 {
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   padding: 0 20px;
   text-align: center;
+  color: #656ed3;
 }
 
 .heading p {
   color: #828282;
 }
 
-.form,
-.content {
-  width: 70%;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 10px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #e6e6e6;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-family: inherit;
-}
-
-.form-group label {
-  text-align: left;
-  display: block;
-  margin: 0 0 5px 3px;
-}
-
 .btn {
   padding: 10px 20px;
-  border: 1px solid #000;
+  border: 1px solid #ffffff;
   border-radius: 5px;
-  background: #000;
+  background: #656ed3;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -128,6 +103,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px 0px;
 }
 
 .btn svg {
@@ -156,11 +132,18 @@ h3 {
   .heading h1 {
     font-size: 2rem;
   }
-
   .heading p {
     font-size: 1.5rem;
   }
+  .wrapp img {
+    display: none;
+  }
+  .wrapper {
+    width: 100%;
+    margin: 0;
+  }
 }
+
 
 .error-msg {
   font-size: 15px;
@@ -174,12 +157,13 @@ h3 {
   padding: 10px 0;
   border-radius: 5px;
 }
+
 .error-bounday {
   width: 100%;
   display: grid;
   align-items: center;
   padding: 5px;
-  background-color: #ffe8e8;
+  background-color: #fbe8ff;
   margin: 10px 0;
   border-radius: 3px;
   border: 0.2px solid #c2c2c25e;

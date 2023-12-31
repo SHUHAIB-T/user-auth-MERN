@@ -87,72 +87,80 @@ export default function Signup({ role }) {
 
   return (
     <>
-      <section className="heading">
-        <h1>Register</h1>
-      </section>
-      <section className="form">
-        {formErrors.serverError && (
-          <div className="error-bounday">
-            <span className="error-msg">{formErrors.serverError}</span>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              value={name}
-              placeholder="Enter your name"
-              onChange={onChange}
-            />
-            <span className="error-msg">{formErrors.name}</span>
-          </div>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
-          <span className="error-msg">{formErrors.email}</span>
-          <div className="form-group">
-            <input
-              type="Number"
-              className="form-control"
-              id="pohne"
-              name="phone"
-              value={phone}
-              placeholder="Enter your phone number"
-              onChange={onChange}
-            />
-          </div>
-          <span className="error-msg">{formErrors.phone}</span>
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={onChange}
-            />
-            <span className="error-msg">{formErrors.password}</span>
-          </div>
+      <div className="wrapp">
+        <div className="wrapper">
+          <section className="heading">
+            <h1>Register</h1>
+          </section>
+          <section className="form">
+            {formErrors.serverError && (
+              <div className="error-bounday">
+                <span className="error-msg">{formErrors.serverError}</span>
+              </div>
+            )}
+            <form onSubmit={onSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  value={name}
+                  placeholder="Enter your name"
+                  onChange={onChange}
+                />
+                <span className="error-msg">{formErrors.name}</span>
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={email}
+                  placeholder="Enter your email"
+                  onChange={onChange}
+                />
+              </div>
+              <span className="error-msg">{formErrors.email}</span>
+              <div className="form-group">
+                <input
+                  type="Number"
+                  className="form-control"
+                  id="pohne"
+                  name="phone"
+                  value={phone}
+                  placeholder="Enter your phone number"
+                  onChange={onChange}
+                />
+              </div>
+              <span className="error-msg">{formErrors.phone}</span>
+              <div className="form-group">
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={password}
+                  placeholder="Enter password"
+                  onChange={onChange}
+                />
+                <span className="error-msg">{formErrors.password}</span>
+              </div>
 
-          <div className="form-group">
-            <button type="submit" className="btn btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
+              <div className="form-group">
+                <button type="submit" className="btn btn-block">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+        <img
+          src="https://drive.google.com/uc?id=1wIQVMl8c5noHYUJtsFr9VbZvf6OwtNAm"
+          alt=""
+        />
+      </div>
     </>
   );
 }
