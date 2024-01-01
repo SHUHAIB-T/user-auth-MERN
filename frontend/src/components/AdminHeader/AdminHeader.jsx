@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./adminHeader.css";
 import { logout } from "../../feautures/Auth/AuthSlice";
 import { search } from "../../feautures/Manage/searchSlice";
+import { Link } from "react-router-dom";
 
 export default function AdminHeader() {
   const [key, setKey] = useState("");
@@ -12,7 +13,9 @@ export default function AdminHeader() {
   return (
     <div className="header">
       <div className="logo">
-        <h1>Admin Panel</h1>
+        <Link to={"/admin/dashboard"}>
+          <h1>Admin Panel</h1>
+        </Link>
       </div>
       <nav className="navbar">
         <ul>

@@ -1,14 +1,23 @@
 .user-list-table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 90%;
   margin-top: 30px;
+}
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.tabletietlewrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .user-list-table td,
 .user-list-table th {
-  border: 2px solid #575757;
-  padding: 8px 20px;
+  border: 1px solid #71537f;
+  padding: 8px 20px
 }
 
 .user-list-table tr:nth-child(even) {
@@ -23,7 +32,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #d3d3d3;
+  background-color: #f4e9ff;
   color: rgb(0, 0, 0);
 }
 .user-list-table td button {
@@ -35,7 +44,7 @@
   color: white;
 }
 .user-list-table td .edit-button {
-  background-color: rgb(54, 140, 197);
+  background-color: rgb(25, 134, 109);
   cursor: pointer;
 }
 .user-list-table td .delete-button {
@@ -48,4 +57,5 @@
 .new-user {
   padding: 20px 0 0 20px;
   width: 150px;
+  margin-left: 45px;
 }
