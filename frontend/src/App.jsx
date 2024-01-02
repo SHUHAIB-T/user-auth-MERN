@@ -27,7 +27,7 @@ export default function App() {
             path="/admin"
             element={<Auth allowedRole={"ADMIN"} />}
           >
-            <Route path="/admin/dashboard" element={<DashBoard />} />
+            <Route path="/admin" element={<DashBoard />} />
             <Route path="/admin/new-user" element={<NewUserPage />} />
             <Route path="/admin/edit-user/:id" element={<EditUserPage />} />
           </Route>

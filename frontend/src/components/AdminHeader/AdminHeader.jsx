@@ -13,7 +13,7 @@ export default function AdminHeader() {
   return (
     <div className="header">
       <div className="logo">
-        <Link to={"/admin/dashboard"}>
+        <Link to={"/admin"}>
           <h1>Admin Panel</h1>
         </Link>
       </div>

@@ -66,7 +66,7 @@ export default function Login(props) {
     }
     if (isSuccess || role === props.role) {
       if (role === "ADMIN") {
-        navigate("/admin/dashboard");
+        navigate("/admin");
       } else if (role === "PUBLIC") {
         navigate("/");
       }

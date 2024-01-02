@@ -76,7 +76,7 @@ export default function EditUser() {
           }
           if (res.data.success) {
             toast(res.data.message);
-            const NAV_URL = "/admin/dashboard";
+            const NAV_URL = "/admin";
             navigate(NAV_URL);
           } else {
             setFormErrors({ serverError: res.data.message });
@@ -99,56 +99,60 @@ export default function EditUser() {
       <section className="heading">
         <h1>Edit User</h1>
       </section>
-      <section className="form">
-        {formErrors.serverError && (
-          <div className="error-bounday">
-            <span className="error-msg">{formErrors.serverError}</span>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              value={name}
-              placeholder="Enter your name"
-              onChange={onChange}
-            />
-            <span className="error-msg">{formErrors.name}</span>
-          </div>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
-          <span className="error-msg">{formErrors.email}</span>
-          <div className="form-group">
-            <input
-              type="Number"
-              className="form-control"
-              id="pohne"
-              name="phone"
-              value={phone}
-              placeholder="Enter your phone number"
-              onChange={onChange}
-            />
-          </div>
-          <span className="error-msg">{formErrors.phone}</span>
-          <div className="form-group">
-            <button type="submit" className="btn btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
+      <div className="edit-user-wrapper">
+        <div className="edit-user">
+          <section className="form">
+            {formErrors.serverError && (
+              <div className="error-bounday">
+                <span className="error-msg">{formErrors.serverError}</span>
+              </div>
+            )}
+            <form onSubmit={onSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  value={name}
+                  placeholder="Enter your name"
+                  onChange={onChange}
+                />
+                <span className="error-msg">{formErrors.name}</span>
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={email}
+                  placeholder="Enter your email"
+                  onChange={onChange}
+                />
+              </div>
+              <span className="error-msg">{formErrors.email}</span>
+              <div className="form-group">
+                <input
+                  type="Number"
+                  className="form-control"
+                  id="pohne"
+                  name="phone"
+                  value={phone}
+                  placeholder="Enter your phone number"
+                  onChange={onChange}
+                />
+              </div>
+              <span className="error-msg">{formErrors.phone}</span>
+              <div className="form-group">
+                <button type="submit" className="btn btn-block">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
     </>
   );
 }

@@ -76,9 +76,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 // @access   Private
 const updateUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
-    if (user.email === req.body.email) {
-
-    }
+    let ogEmail = user.email;
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.phone = req.body.phone || user.phone;
@@ -86,7 +84,7 @@ const updateUser = asyncHandler(async (req, res) => {
         user.password = req.body.password;
     }
     const isEmailExist = await User.findOne({ email: req.body.email });
-    if (isEmailExist) {
+    if (isEmailExist && isEmailExist.email !== ogEmail) {
         res.status(401);
         throw new Error("Email is allready exist");
     } else {
