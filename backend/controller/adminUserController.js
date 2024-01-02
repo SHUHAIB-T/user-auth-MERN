@@ -9,7 +9,8 @@ const getAllusers = asyncHandler(async (req, res) => {
     if (req.query.search) {
         query.name = { $regex: new RegExp(req.query.search, 'i') };
     }
-    const users = await User.find(query);
+    let users = await User.find(query);
+    users = users.reverse()
     if (users) {
         res.status(200);
         res.json({ success: true, users: users });

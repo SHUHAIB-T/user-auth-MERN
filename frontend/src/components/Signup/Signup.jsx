@@ -67,7 +67,7 @@ export default function Signup({ role }) {
           console.log(res.data);
           if (res.data.success) {
             toast(res.data.message);
-            const NAV_URL = role === "ADMIN" ? "/admin/dashboard" : "/login";
+            const NAV_URL = role === "ADMIN" ? "/admin" : "/login";
             navigate(NAV_URL);
           } else {
             setFormErrors({ serverError: res.data.message });
